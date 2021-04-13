@@ -1,0 +1,17 @@
+.ExpenseFilter {
+  color: aliceblue;
+  padding: 0 1rem;
+}
+
+.ExpenseFilterControl {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.ExpenseFilter label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}

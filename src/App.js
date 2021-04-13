@@ -1,9 +1,6 @@
 import React from "react";
 import Expenses from "./components/Expenses/Expenses";
-
-const jakasFunkcja = () => {
-  const kuba = { imie: "cil" };
-};
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
   const expenses = [
@@ -27,9 +24,14 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
   return (
     <div>
-      <h1>Let's get started!</h1>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses expenses={expenses} />
     </div>
   );
