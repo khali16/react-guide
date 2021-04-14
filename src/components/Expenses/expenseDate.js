@@ -1,9 +1,11 @@
+import React from "react";
 import styles from "./ExpenseDate.module.css";
 
-function ExpenseDate(props) {
+const ExpenseDate = (props) => {
   const day = props.date.toLocaleString("en-US", { day: "2-digit" });
   const month = props.date.toLocaleString("en-US", { month: "long" });
   const year = props.date.getFullYear();
+  //tak, wiem powinnam to przenieść do innego pliku, ale nie umiem
   return (
     <div className={styles.ExpenseDate}>
       <div className={styles.ExpenseDateDay}>{day}</div>
@@ -11,6 +13,6 @@ function ExpenseDate(props) {
       <div className={styles.ExpenseDateYear}>{year}</div>
     </div>
   );
-}
+};
 
 export default ExpenseDate;

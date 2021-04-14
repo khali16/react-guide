@@ -1,9 +1,16 @@
-import ExpenseItem from "./Expense Item/ExpenseItem";
+import React, { useState } from "react";
+import ExpenseItem from "./ExpenseItem";
 import styles from "./Expenses.module.css";
+import ExpenseFilter from "./ExpenseFilter";
 
-function Expenses(props) {
+const Expenses = (props) => {
+  const [pickedDate, setDate] = useState("2020");
+  const passedDate = (selectedDate) => {
+    setDate(selectedDate);
+  };
   return (
     <div className={styles.Expenses}>
+      <ExpenseFilter selected={pickedDate} onPassingDate={passedDate} />
       <ExpenseItem
         title={props.expenses[0].title}
         amount={props.expenses[0].amount}
@@ -26,5 +33,5 @@ function Expenses(props) {
       />
     </div>
   );
-}
+};
 export default Expenses;
