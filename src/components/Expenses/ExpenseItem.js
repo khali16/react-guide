@@ -2,22 +2,24 @@ import React, { useState } from "react";
 import styles from "./ExpenseItem.module.css";
 import ExpenseDate from "./expenseDate";
 
-const ExpenseItem = (props) => {
-  const [title, setTitle] = useState(props.title);
+const ExpenseItem = ({ title, date, amount }) => {
+  const [newTitle, setTitle] = useState(title);
 
   const changeTitleHandler = () => {
     setTitle("Updated!");
   };
 
   return (
-    <div className={styles.ExpenseItem}>
-      <div className={styles.ExpenseItemDescription}>
-        <ExpenseDate date={props.date} />
-        <h2>{title}</h2>
-        <div className={styles.ExpenseItemPrice}>{props.amount}$</div>
+    <li>
+      <div className={styles.ExpenseItem}>
+        <div className={styles.ExpenseItemDescription}>
+          <ExpenseDate date={date} />
+          <h2>{newTitle}</h2>
+          <div className={styles.ExpenseItemPrice}>{amount}$</div>
+        </div>
+        <button onClick={changeTitleHandler}>Change Title </button>
       </div>
-      <button onClick={changeTitleHandler}>Change Title </button>
-    </div>
+    </li>
   );
 };
 
