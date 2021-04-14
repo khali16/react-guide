@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./ExpenseDate.module.css";
+import { getDay, getMonth, getYear } from "../../utils/dateUtils";
 
-const ExpenseDate = (props) => {
-  const day = props.date.toLocaleString("en-US", { day: "2-digit" });
-  const month = props.date.toLocaleString("en-US", { month: "long" });
-  const year = props.date.getFullYear();
+const ExpenseDate = ({ date }) => {
+  const day = getDay(date);
+  const month = getMonth(date);
+  const year = getYear(date);
   //tak, wiem powinnam to przenieść do innego pliku, ale nie umiem
   return (
     <div className={styles.ExpenseDate}>
